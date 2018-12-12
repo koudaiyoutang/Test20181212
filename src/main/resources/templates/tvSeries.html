@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div>
+    <!--<form id="form" data-parsley-validate="true" th:action="@{/tv/saveTv}" >-->
+    <form id="form" data-parsley-validate="true" onsubmit="return false">
+      <p class="text-center pv">请填写电视剧信息</p>
+      <div class="form-group has-feedback">
+        <input id="name" name="name"  placeholder="电视剧名称" class="form-control" />
+        <input id="seasonCount" name="seasonCount"  placeholder="集数" class="form-control" />
+        <input id="originRelease1" name="originRelease1"  type="date" placeholder="发布时间" class="form-control" />
+
+      </div>
+      <button id="setNewPwdButton"  class="btn btn-block btn-primary mt-lg">提交</button>
+
+      <button id="setNewPw" onclick="setNewPwd();" class="btn btn-block btn-primary mt-lg">提交</button>
+    </form>
+  </div>
+
+</body>
+<script type="text/javascript"  th:src="@{/js/jquery-1.7.1.min.js}"></script>
+<!--<script type="text/javascript"  src="/static/js/jquery-1.7.1.min.js"></script>-->
+</html>
+<script type='text/javascript'>
+  /*<![CDATA[*/
+  function setNewPwd() {
+    var data = {};
+    data.name= $("#name").val();
+    data.seasonCount= $("#seasonCount").val();
+
+    var url = '/tv/saveTv';
+    $.ajax({
+      url : url,
+      data : data,
+      type : 'POST',
+      dataType : "json",
+      error : function(XMLHttpRequest, textStatus, errorThrown) {
+       console.log("error");
+        console.log( XMLHttpRequest);
+        console.log( XMLHttpRequest.responseText);
+        console.log("error");
+        console.log( textStatus);
+      },
+      success : function(data) {
+        console.log("success");
+      }
+    });
+  }
+
+  /*]]>*/
+</script>
