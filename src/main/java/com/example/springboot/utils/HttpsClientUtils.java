@@ -379,7 +379,7 @@ public class HttpsClientUtils {
         // 获取返回结果
         if (httpResponse != null && httpResponse.getStatusLine() != null) {
             Header[] value = httpResponse.getAllHeaders();
-            System.out.println("---------------------   ----------------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------");
             System.out.println(value);
             String content = "";
             if (httpResponse.getEntity() != null) {
