@@ -390,5 +390,9 @@ public class HttpsClientUtils {
         return new HttpClientResult(HttpStatus.SC_INTERNAL_SERVER_ERROR);
     }
 
+    /**
+     * 测试0002
+     */
+
 }
 
